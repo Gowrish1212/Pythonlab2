@@ -1,19 +1,25 @@
-from collections import Counter
+def count_and_remove_duplicates(lst):
+   
+    count_dict = {}
+
+  
+    for item in lst:
+        if item in count_dict:
+            count_dict[item] += 1
+        else:
+            count_dict[item] = 1
 
 
-my_list = [1, 2, 2, 3, 4, 4, 4, 5]
+    print("Element occurrences:")
+    for item, count in count_dict.items():
+        print(f"{item}: {count}")
+
+   
+    unique_elements = list(count_dict.keys())
+
+    print("\nList after removing duplicates:")
+    print(unique_elements)
 
 
-counts = Counter(my_list)
-
-
-unique_list = list(dict.fromkeys(my_list))
-
-
-print("Element counts:")
-for element, count in counts.items():
-    print(f"{element}: {count}")
-
-
-print("\nList without duplicates:")
-print(unique_list)
+my_list = [4, 2, 7, 4, 2, 4, 5, 7, 1]
+count_and_remove_duplicates(my_list)
